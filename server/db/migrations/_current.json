@@ -1,0 +1,271 @@
+{
+    "tables": {
+        "media": {
+            "tableName": "media",
+            "schema": {
+                "id": {
+                    "defaultValue": {
+                        "internal": true,
+                        "value": "Sequelize.UUIDV4"
+                    },
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "field": "id",
+                    "seqType": "Sequelize.UUID"
+                },
+                "fileId": {
+                    "field": "fileId",
+                    "seqType": "Sequelize.TEXT"
+                },
+                "name": {
+                    "field": "name",
+                    "seqType": "Sequelize.TEXT"
+                },
+                "size": {
+                    "field": "size",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "mimeType": {
+                    "field": "mimeType",
+                    "seqType": "Sequelize.TEXT"
+                },
+                "caption": {
+                    "field": "caption",
+                    "seqType": "Sequelize.TEXT"
+                },
+                "description": {
+                    "field": "description",
+                    "seqType": "Sequelize.TEXT"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "deletedAt": {
+                    "field": "deletedAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "questionId": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "questions",
+                        "key": "id"
+                    },
+                    "onDelete": "CASCADE",
+                    "onUpdate": "NO ACTION",
+                    "field": "questionId",
+                    "seqType": "Sequelize.UUID"
+                },
+                "questionLinkId": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "questionLinks",
+                        "key": "id"
+                    },
+                    "onDelete": "CASCADE",
+                    "onUpdate": "NO ACTION",
+                    "field": "questionLinkId",
+                    "seqType": "Sequelize.UUID"
+                },
+                "questionRunId": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "questionRuns",
+                        "key": "id"
+                    },
+                    "onDelete": "CASCADE",
+                    "onUpdate": "NO ACTION",
+                    "field": "questionRunId",
+                    "seqType": "Sequelize.UUID"
+                }
+            },
+            "indexes": []
+        },
+        "questions": {
+            "tableName": "questions",
+            "schema": {
+                "id": {
+                    "defaultValue": {
+                        "internal": true,
+                        "value": "Sequelize.UUIDV4"
+                    },
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "field": "id",
+                    "seqType": "Sequelize.UUID"
+                },
+                "options": {
+                    "field": "options",
+                    "seqType": "Sequelize.JSONB"
+                },
+                "type": {
+                    "field": "type",
+                    "seqType": "Sequelize.STRING"
+                },
+                "countRun": {
+                    "field": "countRun",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "countDone": {
+                    "field": "countDone",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "caption": {
+                    "field": "caption",
+                    "seqType": "Sequelize.TEXT"
+                },
+                "description": {
+                    "field": "description",
+                    "seqType": "Sequelize.TEXT"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "deletedAt": {
+                    "field": "deletedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "questionLinks": {
+            "tableName": "questionLinks",
+            "schema": {
+                "id": {
+                    "defaultValue": {
+                        "internal": true,
+                        "value": "Sequelize.UUIDV4"
+                    },
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "field": "id",
+                    "seqType": "Sequelize.UUID"
+                },
+                "options": {
+                    "field": "options",
+                    "seqType": "Sequelize.JSONB"
+                },
+                "type": {
+                    "field": "type",
+                    "seqType": "Sequelize.TEXT"
+                },
+                "correct": {
+                    "field": "correct",
+                    "seqType": "Sequelize.TEXT"
+                },
+                "caption": {
+                    "field": "caption",
+                    "seqType": "Sequelize.TEXT"
+                },
+                "description": {
+                    "field": "description",
+                    "seqType": "Sequelize.TEXT"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "deletedAt": {
+                    "field": "deletedAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "questionId": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "questions",
+                        "key": "id"
+                    },
+                    "onDelete": "CASCADE",
+                    "onUpdate": "NO ACTION",
+                    "field": "questionId",
+                    "seqType": "Sequelize.UUID"
+                }
+            },
+            "indexes": []
+        },
+        "questionRuns": {
+            "tableName": "questionRuns",
+            "schema": {
+                "id": {
+                    "defaultValue": {
+                        "internal": true,
+                        "value": "Sequelize.UUIDV4"
+                    },
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "field": "id",
+                    "seqType": "Sequelize.UUID"
+                },
+                "options": {
+                    "field": "options",
+                    "seqType": "Sequelize.JSONB"
+                },
+                "time": {
+                    "field": "time",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "done": {
+                    "field": "done",
+                    "seqType": "Sequelize.BOOLEAN"
+                },
+                "caption": {
+                    "field": "caption",
+                    "seqType": "Sequelize.TEXT"
+                },
+                "description": {
+                    "field": "description",
+                    "seqType": "Sequelize.TEXT"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "deletedAt": {
+                    "field": "deletedAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "questionId": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "questions",
+                        "key": "id"
+                    },
+                    "onDelete": "CASCADE",
+                    "onUpdate": "NO ACTION",
+                    "field": "questionId",
+                    "seqType": "Sequelize.UUID"
+                }
+            },
+            "indexes": []
+        }
+    },
+    "path": "D:\\work\\react\\testSkill\\server\\db\\migrations\\_current.json",
+    "backupPath": "D:\\work\\react\\testSkill\\server\\db\\migrations\\_current_bak.json",
+    "exists": true,
+    "revision": 9
+}

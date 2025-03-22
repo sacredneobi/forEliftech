@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": false,
+    "baseUrl": "./",
+    "paths": {
+      "@utils": ["utils"],
+      "@utils/*": ["utils/*"],
+      "@models": ["db/models"],
+      "@models/*": ["db/models/*"]
+    }
+  },
+  "exclude": ["node_modules"]
+}

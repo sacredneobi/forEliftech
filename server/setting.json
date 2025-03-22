@@ -1,0 +1,14 @@
+{
+  "db": {
+    "username": "postgres",
+    "password": "postgres",
+    "database": "test_skill",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "method": 2,
+  "log": { "debug": true, "tg": true },
+  "port": 4002,
+  "jwt": "x1x2",
+  "client": "../createPack/client"
+}

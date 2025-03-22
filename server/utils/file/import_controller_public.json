@@ -1,0 +1,10 @@
+[
+  "bot.js",
+  "good.js",
+  "location.js",
+  "newTask.js",
+  "session.js",
+  "yookassa.js",
+  "auth/index.js",
+  "media/index.js"
+]

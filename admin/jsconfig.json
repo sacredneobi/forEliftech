@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "jsx": "react-jsx",
+    "paths": {
+      "@api": ["src/api"],
+      "@localComponents": ["src/localComponents"],
+      "@context": ["src/context"]
+    }
+  },
+  "include": ["src/**/*", "../../LIB/components/**/*"],
+  "exclude": ["node_modules"]
+}
