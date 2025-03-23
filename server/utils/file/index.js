@@ -9,4 +9,5 @@ if (!fs.existsSync(mediaPath)) {
 
 module.exports = {
   ...require("./loader"),
+  mediaPath,
 };

@@ -33,7 +33,11 @@ const Default = (props) => {
     <Box flex gap shadow={2} border grow sx={{ p: 1 }}>
       <Stack divider={<Divider sx={{ my: 1 }} />} direction="column">
         {answers?.map?.((item, index) => {
-          const status = correct[String(item.correct ?? null)];
+          if (!item) {
+            return null;
+          }
+
+          const status = correct[String(item?.correct ?? null)];
 
           return (
             <Box

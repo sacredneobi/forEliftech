@@ -3,6 +3,26 @@ import { Icon } from "../icon";
 import { Text } from "../text";
 import { setHashValue } from "@localComponents";
 
+/**
+ * @typedef {Object} MyAddonProps
+ * @property {string} [caption]
+ * @property {keyof import('../icon').IconName} [name]
+ * @property {string} [nav]
+ * @property {object} [propsNav]
+ * @property {SxProps<Theme>} [sxText]
+ * @property {SxProps<Theme>} [sxIcon]
+ *
+ */
+
+/**
+ * @typedef {import('@mui/material').CheckboxProps & MyAddonProps} MyProps
+ */
+
+/**
+ * @param {MyProps} props
+ * @returns {JSX.Element}
+ */
+
 const Default = (props) => {
   const { name, caption, sx, nav, propsNav, sxText, sxIcon, ...other } = props;
 

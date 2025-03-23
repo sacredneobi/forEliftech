@@ -1,5 +1,23 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 
+/**
+ * @typedef {Object} MyAddonProps
+ * @property {string} [caption]
+ * @property {object} [value]
+ * @property {array} [items]
+ * @property {function} [onChange]
+ *
+ */
+
+/**
+ * @typedef {import('@mui/material').SelectProps & MyAddonProps} MyProps
+ */
+
+/**
+ * @param {MyProps} props
+ * @returns {JSX.Element}
+ */
+
 const Default = (props) => {
   const { sx, caption, items, value, onChange } = props;
 

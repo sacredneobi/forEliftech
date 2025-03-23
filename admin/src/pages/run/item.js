@@ -1,8 +1,10 @@
-import { Box, Checkbox, Divider, Input, Text } from "@localComponents";
+import { Box, Checkbox, Divider, File, Input, Text } from "@localComponents";
 import { FormControlLabel, Radio, RadioGroup } from "@mui/material";
 
 const Default = (props) => {
   const { item, option, setOption } = props;
+
+  console.log(item);
 
   return (
     <Box flex gap shadow={2} border grow sx={{ p: 2 }}>
@@ -80,8 +82,34 @@ const Default = (props) => {
           </RadioGroup>
         </Box>
       )}
+      {item.type === "image" && (
+        <Box flex gap ai>
+          {item.options?.map?.((i) => (
+            <img
+              key={i.image}
+              src={`/api/private/media?fileId=${i.image}`}
+              alt="question_image"
+              style={{ maxWidth: "50%" }}
+            />
+          ))}
+          <Divider sx={{ width: 1 }}>
+            <Text caption="Send your answer" marker secondary />
+          </Divider>
+          <File
+            onChange={(value) => {
+              setOption((p) => {
+                p.value = value;
+                p.select = item?.options;
+                p.title = item.caption;
+                p.id = item.id;
+
+                return { ...p };
+              });
+            }}
+          />
+        </Box>
+      )}
       <Box grow />
-      <Box ai="flex-end" flex row jc="space-between"></Box>
     </Box>
   );
 };

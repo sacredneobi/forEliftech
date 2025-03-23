@@ -61,6 +61,20 @@ const DraggableItem = (props) => {
   );
 };
 
+/**
+ * @typedef {Object} MyProps
+ * @property {array} [items]
+ * @property {function} [onChange]
+ * @property {boolean} [onRender]
+ * @property {JSX.Element | String} [emptyCaption]
+ *
+ */
+
+/**
+ * @param {MyProps} props
+ * @returns {JSX.Element}
+ */
+
 const Default = (props) => {
   const { onChange, items, onRender, emptyCaption } = props;
 

@@ -5,6 +5,7 @@ import {
   dispatch,
   Divider,
   Dnd,
+  File,
   getNewObj,
   Input,
   Select,
@@ -18,6 +19,7 @@ const types = [
   { id: "text", caption: "Text" },
   { id: "single", caption: "Single select" },
   { id: "multi", caption: "Multi select" },
+  { id: "image", caption: "Image" },
 ];
 
 const Default = (props) => {
@@ -129,7 +131,7 @@ const Default = (props) => {
           }}
         />
       </Box>
-      {data.type !== "text" ? (
+      {!["text", "image"].includes(data.type) && (
         <>
           <Divider>
             <Text caption="answers" marker secondary />
@@ -158,7 +160,8 @@ const Default = (props) => {
             }}
           />
         </>
-      ) : (
+      )}
+      {data.type === "text" && (
         <Input
           value={data.correct}
           caption="Correct answer"
@@ -167,6 +170,20 @@ const Default = (props) => {
             setData((p) => {
               p ??= {};
               p.correct = value;
+
+              return { ...p };
+            });
+          }}
+        />
+      )}
+      {data.type === "image" && (
+        <File
+          value={data?.options[0]?.image}
+          onChange={(value) => {
+            dispatch("editItem");
+            setData((p) => {
+              p ??= {};
+              p.options = [{ image: value, caption: "image" }];
 
               return { ...p };
             });

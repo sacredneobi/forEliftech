@@ -17,7 +17,28 @@ const icon = {
   asc: "sort-ascending",
   desc: "sort-descending",
   video: "brand-youtube",
+  select: "paperclip",
 };
+
+/**
+ * @typedef {keyof icon} IconName
+ */
+
+/**
+ * @typedef {Object} MyAddonProps
+ * @property {IconName} [name]
+ * @property {boolean} [disabled]
+ *
+ */
+
+/**
+ * @typedef {import('@mui/material').IconProps & MyAddonProps} MyProps
+ */
+
+/**
+ * @param {MyProps} props
+ * @returns {JSX.Element}
+ */
 
 const Default = (props) => {
   const { name, sx, disabled, ...other } = props;
@@ -31,4 +52,4 @@ const Default = (props) => {
   );
 };
 
-export { Default as Icon };
+export { Default as Icon, icon };

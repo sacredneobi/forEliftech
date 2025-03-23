@@ -1,3 +1,14 @@
+/**
+ * @typedef {Object} MyProps
+ * @property {integer} [size]
+ *
+ */
+
+/**
+ * @param {MyProps} props
+ * @returns {JSX.Element}
+ */
+
 const Default = (props) => {
   const { size = 90 } = props;
 

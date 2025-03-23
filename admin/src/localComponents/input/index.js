@@ -2,6 +2,23 @@ import { TextField } from "@mui/material";
 import { Button } from "../button";
 import { Box } from "../box";
 
+/**
+ * @typedef {Object} MyAddonProps
+ * @property {string} [caption]
+ * @property {string} [value]
+ * @property {function} [onChange]
+ *
+ */
+
+/**
+ * @typedef {import('@mui/material').TextFieldProps & MyAddonProps} MyProps
+ */
+
+/**
+ * @param {MyProps} props
+ * @returns {JSX.Element}
+ */
+
 const Default = (props) => {
   const { onChange, caption, value, ...other } = props;
 
@@ -34,5 +51,5 @@ const Default = (props) => {
     />
   );
 };
-
+export * from "./file";
 export { Default as Input };

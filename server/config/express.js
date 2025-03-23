@@ -1,5 +1,6 @@
 const express = require("express");
 const fileUpload = require("express-fileupload");
+const morgan = require("morgan");
 const path = require("path");
 
 const app = express();
@@ -22,11 +23,30 @@ const sendError = (err, res, fileName) => {
 
 log("SYSTEM", clientPath);
 
+morgan.token("platform", (req) => req.headers["x-platform"] || "");
+morgan.token("client", (req) => req.headers["x-client"] || "");
+
+app.use(
+  morgan(
+    ":remote-addr :method :platform :client -> :url :status :response-time ms :res[content-length] ",
+    {
+      stream: {
+        write: (data) =>
+          console.user(
+            "HTTP",
+            data?.trim()?.replaceAll("95.106.14.60", "ПАВЕЛ")
+          ),
+      },
+    }
+  )
+);
+
 app.use(express.json());
 app.use(
   fileUpload({
     createParentPath: true,
     defParamCharset: "utf-8",
+    limits: { fieldSize: 1048576 * 50 },
   })
 );
 app.use((req, res, next) => {

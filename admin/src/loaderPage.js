@@ -6,8 +6,11 @@ import {
   upperCase,
   Divider,
   Text,
+  Loading,
 } from "@localComponents";
 import { useEffect, useState } from "react";
+
+const allFonts = ["24px ti-icons"];
 
 let pages = await requireAll(
   require.context("./pages", true, /index.js/, "lazy")
@@ -70,10 +73,51 @@ const Pages = (props) => {
 };
 
 const Default = (props) => {
-  const { role } = props;
+  const { role, fonts } = props;
   const [page] = useState(buildPages(role));
+  const [fontLoading, setFontLoading] = useState(true);
+
+  useEffect(() => {
+    (async () => {
+      await document.fonts.ready;
+
+      Promise.all(
+        [...(fonts ?? []), ...allFonts].map((i) =>
+          document.fonts.load(i, "ß").then((font) => {
+            console.log("FONT INIT", font?.[0]?.family ?? font?.[0] ?? font, i);
+            return true;
+          })
+        )
+      )
+        .then(() => setFontLoading(false))
+        .catch((err) => {
+          console.log("FONT", err);
+          setFontLoading(false);
+        });
+    })();
+  }, [fonts]);
 
   const findMain = "main";
+
+  if (fontLoading) {
+    return (
+      <Box
+        name="page"
+        flex
+        grow
+        center
+        sx={{
+          overflow: "auto",
+          p: 2,
+          minHeight: "100dvh",
+          maxWidth: 1200,
+          mx: "auto",
+        }}
+      >
+        <Loading size={230} />
+      </Box>
+    );
+  }
 
   return (
     <Box
