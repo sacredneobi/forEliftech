@@ -16,7 +16,8 @@ The **Questionnaire Builder App** is a web-based application designed to create,
     - **Description**
     - **Number of questions**
     - **Number of completions**
-    - **Actions**: `Edit`, `Run`, `Delete`
+    - **Actions**: `Edit`, `Show statistic`, `Delete`
+    - **Run**: for run quiz
 
 - **Questionnaire Builder Page**
 
@@ -48,12 +49,7 @@ The **Questionnaire Builder App** is a web-based application designed to create,
   - **Average completion time**
   - **Number of completions per day/week/month** (line/bar chart)
   - **Pie chart** for question response distribution
-
-## ❗ Unfinished Feature
-
-The following feature has **not** been implemented:
-
-- **Questionnaire Builder Page:** `Image` question type allowing users to upload images for this question during questionnaire completion.
+  - **Select image in create question and send image in run quiz** question type allowing users to upload images for this question during questionnaire completion.
 
 ## 🛠 Technologies Used
 
